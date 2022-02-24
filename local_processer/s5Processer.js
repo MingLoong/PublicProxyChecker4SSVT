@@ -15,7 +15,9 @@ nodef.forEach(n => {
         if(p.ping < 600) {
             alive.push({
                 node: n.source,
-                ping: p.ping
+                ping: p.ping,
+                geo: JSON.parse(request('GET',`${process.env.GEOIP}/${n.node[0]}`).body.toString())
+    
             });
             return;
         }

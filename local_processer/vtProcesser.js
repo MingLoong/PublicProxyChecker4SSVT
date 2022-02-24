@@ -41,7 +41,8 @@ nodef.forEach(n => {
             if(p.ping < 600) {
                 alive.push({
                     node: n,
-                    ping: p.ping
+                    ping: p.ping,
+                    geo: JSON.parse(request('GET',`${process.env.GEOIP}/${n.add}`).body.toString())
                 });
                 return;
             }
@@ -54,7 +55,8 @@ nodef.forEach(n => {
             if(p.ping < 600) {
                 alive.push({
                     node: n,
-                    ping: p.ping
+                    ping: p.ping,
+                    geo: JSON.parse(request('GET',`${process.env.GEOIP}/${n.app}`).body.toString())
                 });
                 return;
             }
