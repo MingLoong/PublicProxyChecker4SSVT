@@ -46,15 +46,100 @@ const server = http.createServer(async (req,res) => {
     const url = req.url.split('/');
     switch(url[1]){
         case 'api': {
+            if(url[4] != process.env.TOKEN) {req.end('Error:Token Access Failed.');return;}
             switch(url[2]){
                 case 'ss':{
                     switch(url[3]){
                         case 'postAlive':{
-                            if(url[4] != )
+                            if(req.method != 'POST') {req.end('Error:Only POST is accepted.');return;}
+                            let arr = [];
+                            req.on("data", function(data) {
+                                arr.push(data);
+                            });
+                            req.on("end", function() {
+                                let d = Buffer.concat(arr).toString();
+                                if(!d) {req.end('Error:No Data POSTed.');return;}
+                                put('ssAlive',d);
+                            });
+                        }
+                        case 'postFail':{
+                            if(req.method != 'POST') {req.end('Error:Only POST is accepted.');return;}
+                            let arr = [];
+                            req.on("data", function(data) {
+                                arr.push(data);
+                            });
+                            req.on("end", function() {
+                                let d = Buffer.concat(arr).toString();
+                                if(!d) {req.end('Error:No Data POSTed.');return;}
+                                put('ssFail',d);
+                            });
                         }
                     }
                 }
                 case 's5':{
+                    switch(url[3]){
+                        case 'postAlive':{
+                            if(req.method != 'POST') {req.end('Error:Only POST is accepted.');return;}
+                            let arr = [];
+                            req.on("data", function(data) {
+                                arr.push(data);
+                            });
+                            req.on("end", function() {
+                                let d = Buffer.concat(arr).toString();
+                                if(!d) {req.end('Error:No Data POSTed.');return;}
+                                put('s5Alive',d);
+                            });
+                        }
+                        case 'postFail':{
+                            if(req.method != 'POST') {req.end('Error:Only POST is accepted.');return;}
+                            let arr = [];
+                            req.on("data", function(data) {
+                                arr.push(data);
+                            });
+                            req.on("end", function() {
+                                let d = Buffer.concat(arr).toString();
+                                if(!d) {req.end('Error:No Data POSTed.');return;}
+                                put('s5Fail',d);
+                            });
+                        }
+                    }
+                }
+                case 'vt':{
+                    switch(url[3]){
+                        case 'postAlive':{
+                            if(req.method != 'POST') {req.end('Error:Only POST is accepted.');return;}
+                            let arr = [];
+                            req.on("data", function(data) {
+                                arr.push(data);
+                            });
+                            req.on("end", function() {
+                                let d = Buffer.concat(arr).toString();
+                                if(!d) {req.end('Error:No Data POSTed.');return;}
+                                put('vtAlive',d);
+                            });
+                        }
+                        case 'postFail':{
+                            if(req.method != 'POST') {req.end('Error:Only POST is accepted.');return;}
+                            let arr = [];
+                            req.on("data", function(data) {
+                                arr.push(data);
+                            });
+                            req.on("end", function() {
+                                let d = Buffer.concat(arr).toString();
+                                if(!d) {req.end('Error:No Data POSTed.');return;}
+                                put('vtFail',d);
+                            });
+                        }
+                    }
+                }
+            }
+        }
+        case 'user':{
+            switch(url[2]) {
+                case 's5':{
+                    
+                }
+                case 'ss':{
 
                 }
                 case 'vt':{

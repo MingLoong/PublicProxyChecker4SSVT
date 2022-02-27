@@ -64,5 +64,7 @@ nodef.forEach(n => {
     }
     fail.push(n);
 });
+fs.writeFileSync('vtAlive',JSON.stringify(alive));
+fs.writeFileSync('vtFail',JSON.stringify(fail));
 request('POST',`${process.env.API}/api/vt/postAlive/${process.env.KEY}`,JSON.stringify(alive));
 request('POST',`${process.env.API}/api/vt/postFail/${process.env.KEY}`,JSON.stringify(fail));

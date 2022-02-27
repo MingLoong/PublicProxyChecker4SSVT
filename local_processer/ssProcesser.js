@@ -23,5 +23,7 @@ nodef.forEach(n => {
     }
     fail.push(n.node);
 });
+fs.writeFileSync('ssAlive',JSON.stringify(alive));
+fs.writeFileSync('ssFail',JSON.stringify(fail));
 request('POST',`${process.env.API}/api/ss/postAlive/${process.env.KEY}`,JSON.stringify(alive));
 request('POST',`${process.env.API}/api/ss/postFail/${process.env.KEY}`,JSON.stringify(fail));
