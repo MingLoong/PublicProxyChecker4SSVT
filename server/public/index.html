@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+        <title>Proxy Checker - By MiuliKain</title>
+        <meta name="description" content="开源代理检查工具，适用于Socks5、V2ray、Shadowsocks、Trojan">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Proxy Checker - By MiuliKain">
+        <meta property="og:url" content="https://github.com/MiuliKain/PublicProxyChecker4SSVT">
+        <meta property="og:site_name" content="Proxy Checker - By MiuliKain">
+        <meta property="og:description" content="开源代理检查工具，适用于Socks5、V2ray、Shadowsocks、Trojan">
+        <meta property="og:locale" content="zh_CN">
+        <meta property="article:author" content="MiuliKain">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css" />
+        <script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js"></script>
+    </head>
+    <body class="mdui-bottom-nav-fixed mdui-theme-layout-dark mdui-drawer-body-left mdui-appbar-with-toolbar">
+        <header class="mdui-appbar mdui-appbar-fixed">
+            <div class="mdui-toolbar mdui-color-theme">
+              <a href="javascript:menu();" class="mdui-btn mdui-btn-icon">
+                <i class="mdui-icon material-icons">menu</i>
+              </a>
+              <a href="javascript:;" class="mdui-typo-headline">Public Proxy Checker</a>
+              <div class="mdui-toolbar-spacer"></div>
+              <a href="javascript:;" class="mdui-btn mdui-btn-icon">
+                <i class="mdui-icon material-icons">more_vert</i>
+              </a>
+            </div>
+        </header>
+        <div class="mdui-container-fluid">
+            <div class="mdui-drawer mdui-shadow-6" id="drawer">
+                <ul class="mdui-list">
+                    <li class="mdui-list-item mdui-ripple mdui-list-item-active">
+                        <i class="mdui-list-item-icon mdui-icon material-icons">donut_large</i>
+                        <div class="mdui-list-item-content">总览</div>
+                    </li>
+                    <li class="mdui-list-item mdui-ripple">
+                        <i class="mdui-list-item-icon mdui-icon material-icons">vertical_align_bottom</i>
+                        <div class="mdui-list-item-content">订阅获取</div>
+                    </li>
+                    <li class="mdui-divider"></li>
+                    <li class="mdui-list-item mdui-ripple">
+                        <i class="mdui-list-item-icon mdui-icon material-icons">info_outline</i>
+                        <div class="mdui-list-item-content">关于</div>
+                    </li>
+                </ul>
+            </div>
+            <br>
+            
+        </div>
+        <script>
+            var $ = mdui.$;
+            var results = document.getElementById("results");
+            var inst = new mdui.Drawer('#drawer');
+            function menu() {
+                if(inst.state == 'closed') inst.open();
+                else inst.close();
+            }
+        </script>
+      </body>
+</html>

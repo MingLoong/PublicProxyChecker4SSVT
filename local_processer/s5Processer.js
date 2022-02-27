@@ -17,7 +17,6 @@ nodef.forEach(n => {
                 node: n.source,
                 ping: p.ping,
                 geo: JSON.parse(request('GET',`${process.env.GEOIP}/${n.node[0]}`).body.toString())
-    
             });
             return;
         }

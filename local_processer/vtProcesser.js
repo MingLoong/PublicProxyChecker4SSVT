@@ -23,7 +23,7 @@ function praseNode(link) {
     }
 }
 
-let vt = fs.readFileSync('dl.txt').toString();
+let vt = fs.readFileSync('vt.txt').toString();
 vt = vt.split('\n');
 let nodef = [];
 vt.forEach(n => {
@@ -56,7 +56,7 @@ nodef.forEach(n => {
                 alive.push({
                     node: n,
                     ping: p.ping,
-                    geo: JSON.parse(request('GET',`${process.env.GEOIP}/${n.app}`).body.toString())
+                    geo: JSON.parse(request('GET',`${process.env.GEOIP}/${n.ip}`).body.toString())
                 });
                 return;
             }
