@@ -213,13 +213,16 @@ const server = http.createServer(async (req,res) => {
             break;
         }
         default:{
-            if(req.url == '/') req.url = '/index.html';
+            let f = url;
+            f = f[f.length - 1];
+            if(req.url == '/') f = 'index.html';
+            if(url[1] == 'src') f = 'src/' + f;
             try {
-                let f = fs.readFileSync('public' + req.url);
-                res.end(f);
+                let s = fs.readFileSync('public/' + f);
+                res.end(s);
             }
             catch(err) {
-                res.end('Error:\n    - 404\n    - ' + err.message);
+                res.end('Error:\n    - 404/403\n    - ' + err.message);
             }
         }
     }

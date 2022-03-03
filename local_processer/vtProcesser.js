@@ -37,10 +37,8 @@ let nodef = [];
 vt.forEach((n,i) => {
     let p = praseNode(n);
     if(p) nodef.push(p);
-    console.log(i);
 });
 let alive = [],fail = [];
-console.log(nodef);
 nodef.forEach((n,i) => {
     switch(n.type) {
         case 'Vmess':{
