@@ -8,22 +8,24 @@ ss = ss.split('\n');
 let nodef = [];
 ss.forEach(s => {if(s) nodef.push({node:s.split(' '),source:s})});
 let alive = [],fail = [];
-nodef.forEach(n => {
+nodef.forEach((n,i) => {
     let p = request('GET',`${process.env.CHECKER}/${n.node[0]}/${n.node[1]}`).body.toString();
     if(p.match('ping')) {
-        p = JSON.stringify(p);
-        if(p.ping < 600) {
+        p = JSON.parse(p);
+        if(p.ping < 600 && p.ping != null) {
             alive.push({
                 node: n.source,
                 ping: p.ping,
                 geo: JSON.parse(request('GET',`${process.env.GEOIP}/${n.node[0]}`).body.toString())
             });
+            console.log(`${i + 1}/${nodef.length} Accept`);
             return;
         }
     }
     fail.push(n.node);
+    console.log(`${i + 1}/${nodef.length} Fail`);
 });
 fs.writeFileSync('ssAlive',JSON.stringify(alive));
 fs.writeFileSync('ssFail',JSON.stringify(fail));
-request('POST',`${process.env.API}/api/ss/postAlive/${process.env.KEY}`,JSON.stringify(alive));
-request('POST',`${process.env.API}/api/ss/postFail/${process.env.KEY}`,JSON.stringify(fail));
+request('POST',`${process.env.API}/api/ss/postAlive/${process.env.KEY}`,{json: alive});
+request('POST',`${process.env.API}/api/ss/postFail/${process.env.KEY}`,{json: fail});

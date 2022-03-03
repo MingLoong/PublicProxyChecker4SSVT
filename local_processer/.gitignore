@@ -1,6 +1,12 @@
 socks5.txt
 ss.txt
 vt.txt
+ssAlive
+ssFail
+vtAlive
+vtFail
+s5Alive
+s5Fail
 # Logs
 logs
 *.log

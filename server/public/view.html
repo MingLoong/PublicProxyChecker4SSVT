@@ -31,11 +31,11 @@
         <div class="mdui-container-fluid">
             <div class="mdui-drawer mdui-shadow-6" id="drawer">
                 <ul class="mdui-list">
-                    <li onclick="" class="mdui-list-item mdui-ripple mdui-list-item-active">
+                    <li onclick="window.location.href += '/..';" class="mdui-list-item mdui-ripple">
                         <i class="mdui-list-item-icon mdui-icon material-icons">donut_large</i>
                         <div class="mdui-list-item-content">总览</div>
                     </li>
-                    <li onclick="window.location.href += 'view.html';" class="mdui-list-item mdui-ripple">
+                    <li onclick="" class="mdui-list-item mdui-ripple mdui-list-item-active">
                         <i class="mdui-list-item-icon mdui-icon material-icons">vertical_align_bottom</i>
                         <div class="mdui-list-item-content">订阅获取</div>
                     </li>
@@ -51,25 +51,13 @@
                 <div class="mdui-row">
                     <div class="mdui-col-xs-12 mdui-col-sm-6">
                         <div class="mdui-typo mdui-hoverable">
-                            <h1>总览 <i onclick="reLoad();" class="mdui-ripple mdui-icon material-icons">refresh</i></h1>
-                            <h2>Socks5</h2>
-                            <p>存活:<ins><sacount>N</sacount></ins> 失败:<ins><sfcount>N</sfcount></ins></p>
-                            <h2>ShadowSocks</h2>
-                            <p>存活:<ins><ssacount>N</ssacount></ins> 失败:<ins><ssfcount>N</ssfcount></ins></p>
-                            <h2>V2ray/Trojan</h2>
-                            <p>存活:<ins><vtacount>N</vtacount></ins> 失败:<ins><vtfcount>N</vtfcount></ins></p>
-                        </div>
-                    </div>
-                    <div class="mdui-col-xs-12 mdui-col-sm-6">
-                        <div class="mdui-typo mdui-hoverable">
-                            <h1>提示</h1>
-                            <p>如果希望直接导入，请按以下格式操作数据库</p>
-                            <pre>{"node":"34.81.255.134 45041 aes-256-gcm 44621","ping":44.579362,"geo":{"geo":"美国","more":"得克萨斯州"}}<br>//ss<br>{"node":{"type":"Vmess","node":{"id":"1edf24d4-0376-4cf5-b1ce-73ca073c70e7","aid":"0","v":"2","tls":"none","add":"43.132.159.194","port":"48395","type":"none","net":"tcp","path":"","host":"","ps":"二叉树 0223/HK/Central/Tencentcloudcomputing/tcp"}},"ping":30.772721,"geo":{"geo":"未知","more":""}}<br>//v2ray<br>{"node":{"type":"Trojan","node":{"ip":"132.226.20.1","port":"443","password":"He2xmtd5LA"}},"ping":141.887059,"geo":{"geo":"未知","more":""}}<br>//trojan</pre>
+                            <h1>从服务端提取信息</h1>
+                            <p>因为咕咕，所以仅能提取JSON格式的信息，路径如下</p>
+                            <pre>serverLink/dev/getJSON</pre>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <script src="src/main.js"></script>
       </body>
 </html>
