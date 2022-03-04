@@ -20,7 +20,7 @@ function ping(n){
     return JSON.stringify({ping: 601});
 }
 
-let s5 = fs.readFileSync('socks5.txt').toString();
+let s5 = fs.readFileSync('s5.txt').toString();
 s5 = s5.split('\n');
 let nodef = [];
 s5.forEach(s => {if(s) nodef.push({node:s.split(' ')[0].split(':'),source:s})});
